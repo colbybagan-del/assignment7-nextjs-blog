@@ -17,13 +17,13 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 
 // Import the function that retrieves and sorts the JSON blog posts.
-import { getSortedPostsData } from '../lib/posts-json';
+import { getSortedPostsData } from '../lib/posts-firebase';
 
 
 // Generate the blog post data at build time.
 export async function getStaticProps() {
   // Retrieve all posts from the JSON data file.
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
 
   // Return the blog post data as properties for the Home component.
   return {
